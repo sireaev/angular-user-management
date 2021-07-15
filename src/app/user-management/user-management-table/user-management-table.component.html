@@ -1,0 +1,36 @@
+<div class="container">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Status</th>
+                <th>Photo</th>
+                <th>Cars</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of users">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.age}}</td>
+                <td>{{item.gender}}</td>
+                <td>{{item.status}}</td>
+                <td>
+                    <span *ngFor="let avatar of item.photo">{{avatar}}</span>
+                </td>
+                <td>
+                    <span *ngFor="let car of item.cars">
+                        {{car.name}}<br>
+                        {{car.engine}}
+                    </span>
+                </td>
+            </tr>
+            <tr *ngIf="!users || !users.length">
+                <td colspan="100" style="text-align: center;">There are no items ))</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
